@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos para la codificación y el viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título de la página -->
+    <title>Calculadora de Promedio Ponderado</title>
+
+    <!-- Estilos CSS para la página -->
+    <style>
+        /* Estilo para el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif;  /* Definir la fuente */
+            background-color: #f4f4f9;  /* Color de fondo */
+            margin: 0;  /* Elimina márgenes */
+            padding: 0;  /* Elimina rellenos */
+            color: #333;  /* Color de texto */
+        }
+
+        /* Contenedor principal de la página */
+        .contenedor {
+            max-width: 800px;  /* Ancho máximo */
+            margin: 30px auto;  /* Centrado automático */
+            padding: 20px;  /* Espaciado interno */
+            background-color: white;  /* Fondo blanco */
+            border-radius: 8px;  /* Bordes redondeados */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+        }
+
+        /* Estilo para el título principal */
+        h1 {
+            text-align: center;  /* Centrado de texto */
+            color: #4CAF50;  /* Color verde */
+        }
+
+        /* Estilo para el formulario */
+        form {
+            margin-bottom: 30px;  /* Margen inferior */
+            padding: 15px;  /* Espaciado interno */
+            border: 1px solid #ddd;  /* Borde gris claro */
+            border-radius: 8px;  /* Bordes redondeados */
+            background-color: #f9f9f9;  /* Fondo gris claro */
+        }
+
+        /* Estilo para las etiquetas de los campos de formulario */
+        label {
+            font-weight: bold;  /* Negrita */
+            display: block;  /* Mostrar como bloque */
+            margin-bottom: 8px;  /* Margen inferior */
+        }
+
+        /* Estilo para los campos de entrada de texto y números */
+        input[type="text"], input[type="number"] {
+            width: 100%;  /* Ancho completo */
+            padding: 10px;  /* Espaciado interno */
+            margin-bottom: 15px;  /* Margen inferior */
+            border: 1px solid #ccc;  /* Borde gris claro */
+            border-radius: 5px;  /* Bordes redondeados */
+            font-size: 16px;  /* Tamaño de la fuente */
+        }
+
+        /* Estilo para los botones */
+        button {
+            background-color: #4CAF50;  /* Fondo verde */
+            color: white;  /* Texto blanco */
+            padding: 10px 20px;  /* Relleno interno */
+            border: none;  /* Sin borde */
+            border-radius: 5px;  /* Bordes redondeados */
+            cursor: pointer;  /* Cambia el cursor al pasar sobre el botón */
+            font-size: 16px;  /* Tamaño de la fuente */
+        }
+
+        /* Estilo para el botón cuando se pasa el cursor sobre él */
+        button:hover {
+            background-color: #45a049;  /* Cambia el color de fondo a un verde más oscuro */
+        }
+
+        /* Estilo para la lista de notas */
+        .lista-notas {
+            list-style-type: none;  /* Elimina los puntos de la lista */
+            padding: 0;  /* Elimina el relleno */
+        }
+
+        /* Estilo para cada elemento de la lista de notas */
+        .item-nota {
+            background-color: #f9f9f9;  /* Fondo gris claro */
+            margin: 10px 0;  /* Margen superior e inferior */
+            padding: 10px;  /* Relleno interno */
+            border-radius: 5px;  /* Bordes redondeados */
+            border: 1px solid #ddd;  /* Borde gris claro */
+            display: flex;  /* Usar flexbox para disposición horizontal */
+            justify-content: space-between;  /* Espaciar los elementos */
+            align-items: center;  /* Centrar los elementos verticalmente */
+        }
+
+        /* Estilo para el botón de eliminar */
+        .item-nota button {
+            background-color: #e74c3c;  /* Fondo rojo */
+        }
+
+        /* Estilo para el botón de eliminar cuando se pasa el cursor sobre él */
+        .item-nota button:hover {
+            background-color: #c0392b;  /* Cambia a un rojo más oscuro */
+        }
+
+        /* Estilo para el resultado del promedio ponderado */
+        .resultado {
+            font-size: 18px;  /* Tamaño de la fuente */
+            font-weight: bold;  /* Negrita */
+            margin-top: 20px;  /* Margen superior */
+        }
+    </style>
+</head>
+<body>
+<button type="button" onclick="window.location.href='/'">Ir a la Página 1</button>
+<button type="button" onclick="window.location.href='/pagina2'">Ir a la Página 2</button>
+
+    <!-- Contenedor principal de la calculadora -->
+    <div class="contenedor">
+        <!-- Título de la página -->
+        <h1>Calculadora de Promedio Ponderado</h1>
+
+        <!-- Formulario para ingresar notas y porcentajes -->
+        <form method="POST" action="/calculadora_notas">
+            <!-- Campo para ingresar la nota -->
+            <label for="nota">Nota:</label>
+            <input type="number" id="nota" name="nota" min="0" max="20" required> <!-- Campo de entrada para la nota -->
+
+            <!-- Campo para ingresar el porcentaje correspondiente a la nota -->
+            <label for="porcentaje">Porcentaje:</label>
+            <input type="number" id="porcentaje" name="porcentaje" min="0" max="100" required> <!-- Campo de entrada para el porcentaje -->
+
+            <!-- Botón para enviar el formulario y agregar la nota -->
+            <button type="submit">Agregar Nota</button>
+        </form>
+
+        <!-- Título de la sección de notas registradas -->
+        <h2>Notas y Porcentajes Registrados</h2>
+
+        <!-- Lista de notas y porcentajes ingresados -->
+        <ul class="lista-notas">
+            <!-- Iteración sobre cada nota registrada -->
+            {% for nota in notas %}
+                <li class="item-nota">
+                    <!-- Muestra la nota y el porcentaje -->
+                    <div>
+                        <strong>Nota:</strong> {{ nota[1] }} | <strong>Porcentaje:</strong> {{ nota[2] }}%
+                    </div>
+                    <!-- Formulario para eliminar una nota -->
+                    <form action="/eliminar_nota" method="POST" style="display: inline;">
+                        <!-- Campo oculto que contiene el ID de la nota a eliminar -->
+                        <input type="hidden" name="nota_id" value="{{ nota[0] }}">
+                        <!-- Botón para eliminar la nota -->
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Sección para mostrar el resultado del promedio ponderado -->
+        <div class="resultado">
+            <h3>Promedio Ponderado: {{ promedio_ponderado }}</h3>
+        </div>
+    </div>
+</body>
+</html>

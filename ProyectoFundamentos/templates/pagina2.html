@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos para la codificación y el viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título de la página -->
+    <title>Clasificación de Cursos</title>
+
+    <!-- Estilos CSS para la página -->
+    <style>
+        /* Estilo para el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif;  /* Definir la fuente */
+            background-color: #f4f4f9;  /* Color de fondo */
+            margin: 0;  /* Elimina márgenes */
+            padding: 0;  /* Elimina rellenos */
+            color: #333;  /* Color de texto */
+        }
+
+        /* Contenedor principal de la página */
+        .container {
+            max-width: 800px;  /* Ancho máximo */
+            margin: 30px auto;  /* Centrado automático */
+            padding: 20px;  /* Espaciado interno */
+            background-color: white;  /* Fondo blanco */
+            border-radius: 8px;  /* Bordes redondeados */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+        }
+
+        /* Estilo para el título principal */
+        h1 {
+            text-align: center;  /* Centrado de texto */
+            color: #4CAF50;  /* Color verde */
+            margin-bottom: 20px;  /* Margen inferior */
+        }
+
+        /* Estilo para el formulario */
+        form {
+            margin-bottom: 30px;  /* Margen inferior */
+            padding: 15px;  /* Espaciado interno */
+            border: 1px solid #ddd;  /* Borde gris claro */
+            border-radius: 8px;  /* Bordes redondeados */
+            background-color: #f9f9f9;  /* Fondo gris claro */
+        }
+
+        /* Estilo para las etiquetas de los campos de formulario */
+        label {
+            font-weight: bold;  /* Negrita */
+            display: block;  /* Mostrar como bloque */
+            margin-bottom: 8px;  /* Margen inferior */
+        }
+
+        /* Estilo para los campos de entrada de texto y select */
+        input[type="text"], select {
+            width: 100%;  /* Ancho completo */
+            padding: 10px;  /* Espaciado interno */
+            margin-bottom: 15px;  /* Margen inferior */
+            border: 1px solid #ccc;  /* Borde gris claro */
+            border-radius: 5px;  /* Bordes redondeados */
+            font-size: 16px;  /* Tamaño de la fuente */
+        }
+
+        /* Estilo para los botones */
+        button {
+            background-color: #4CAF50;  /* Fondo verde */
+            color: white;  /* Texto blanco */
+            padding: 10px 20px;  /* Relleno interno */
+            border: none;  /* Sin borde */
+            border-radius: 5px;  /* Bordes redondeados */
+            cursor: pointer;  /* Cambia el cursor al pasar sobre el botón */
+            font-size: 16px;  /* Tamaño de la fuente */
+        }
+
+        /* Estilo para el botón cuando se pasa el cursor sobre él */
+        button:hover {
+            background-color: #45a049;  /* Cambia el color de fondo a un verde más oscuro */
+        }
+
+        /* Estilo para los mensajes de error y éxito */
+        .messages p {
+            padding: 10px;  /* Espaciado interno */
+            border-radius: 5px;  /* Bordes redondeados */
+        }
+
+        /* Estilo para los mensajes de error */
+        .error {
+            background-color: #f8d7da;  /* Fondo rojo claro */
+            color: #721c24;  /* Texto rojo oscuro */
+            border: 1px solid #f5c6cb;  /* Borde rojo claro */
+        }
+
+        /* Estilo para los mensajes de éxito */
+        .success {
+            background-color: #d4edda;  /* Fondo verde claro */
+            color: #155724;  /* Texto verde oscuro */
+            border: 1px solid #c3e6cb;  /* Borde verde claro */
+        }
+
+        /* Estilo para las estadísticas */
+        .stats {
+            margin-top: 20px;  /* Margen superior */
+            padding: 15px;  /* Espaciado interno */
+            border-radius: 8px;  /* Bordes redondeados */
+            background-color: #f1f1f1;  /* Fondo gris claro */
+        }
+
+        /* Estilo para la lista de cursos y tareas */
+        ul {
+            list-style-type: none;  /* Elimina los puntos de la lista */
+            padding: 0;  /* Elimina el relleno */
+        }
+
+        /* Estilo para los elementos de la lista */
+        li {
+            background-color: #f9f9f9;  /* Fondo gris claro */
+            margin: 10px 0;  /* Margen superior e inferior */
+            padding: 10px;  /* Relleno interno */
+            border-radius: 5px;  /* Bordes redondeados */
+            border: 1px solid #ddd;  /* Borde gris claro */
+        }
+    </style>
+</head>
+<body>
+    <!-- Botón clicable para navegar hacia la página 1 -->
+    <button type="button" onclick="window.location.href='/'">Ir a la Página 1</button>
+    <button type="button" onclick="window.location.href='/calculadora_notas'">Ir a la Calculadora</button>
+
+
+
+    <!-- Sección principal que contiene el formulario para agregar cursos y tareas -->
+    <div class="container">
+        <!-- Título de la sección -->
+        <h1>Agregar Curso y Tarea</h1>
+
+        <!-- Formulario para agregar un curso y una tarea -->
+        <form method="POST" action="/pagina2">
+            <!-- Etiqueta y campo de texto para el nombre del curso -->
+            <label for="nombre_curso">Nombre del curso:</label>
+            <input type="text" id="nombre_curso" name="nombre_curso" required> <!-- Campo de entrada para el nombre del curso -->
+
+            <!-- Etiqueta y campo de texto para la descripción de la tarea -->
+            <label for="descripcion_tarea">Descripción de la tarea:</label>
+            <input type="text" id="descripcion_tarea" name="descripcion_tarea" required> <!-- Campo de entrada para la descripción de la tarea -->
+
+            <!-- Botón para enviar el formulario y agregar el curso y tarea -->
+            <button type="submit">Agregar curso y tarea</button>
+        </form>
+
+        <!-- Título de la lista de cursos y tareas -->
+        <h2>Lista de Cursos y Tareas</h2>
+
+        <!-- Lista de cursos y tareas -->
+        <ul>
+            <!-- Iteración sobre cada curso en la lista de cursos -->
+            {% for curso in cursos %}
+                <li>
+                    <!-- Contenedor para los detalles de cada curso -->
+                    <div class="detalles-curso">
+                        <!-- Nombre del curso -->
+                        <div class="nombre-curso">Curso: {{ curso.nombre_curso }}</div>
+                        <!-- Descripción de la tarea -->
+                        <div class="descripcion-tarea">Tarea: {{ curso.descripcion_tarea }}</div>
+                    </div>
+
+                    <!-- Formulario para eliminar una tarea -->
+                    <form class="formulario-inline" action="/eliminar_tarea" method="POST">
+                        <!-- Campo oculto que pasa la descripción de la tarea a eliminar -->
+                        <input type="hidden" name="descripcion_tarea_a_eliminar" value="{{ curso.descripcion_tarea }}">
+                        <!-- Botón para eliminar la tarea -->
+                        <button type="submit">Eliminar tarea</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Título para la sección que obtiene todas las descripciones de tareas -->
+        <h2>Obtener Todas las Descripciones de Tareas</h2>
+
+        <!-- Botón que al hacer clic llama a la función JavaScript para obtener las tareas -->
+        <button onclick="obtenerDescripcionesTareas()">Obtener Descripciones de Tareas</button>
+
+        <!-- Lista donde se mostrarán las descripciones de tareas obtenidas -->
+        <ul id="descripciones_tareas"></ul>
+    </div>
+
+    <!-- Script para obtener las descripciones de tareas desde el servidor -->
+    <script>
+        // Función JavaScript para obtener las descripciones de las tareas
+        function obtenerDescripcionesTareas() {
+            // Realiza una solicitud al servidor para obtener las tareas
+            fetch('/obtener_tareas')
+                .then(response => response.json())  <!-- Convierte la respuesta a formato JSON -->
+                .then(data => {
+                    // Selecciona el contenedor de la lista donde se mostrarán las tareas
+                    const listaTareas = document.getElementById('descripciones_tareas');
+
+                    // Limpia el contenido previo de la lista
+                    listaTareas.innerHTML = '';
+
+                    // Recorre la lista de tareas obtenidas y las agrega al HTML
+                    data.forEach(tarea => {
+                        const li = document.createElement('li');  <!-- Crea un nuevo elemento de lista (li) -->
+                        li.textContent = tarea;  <!-- Asigna el texto de la tarea a cada li -->
+                        listaTareas.appendChild(li);  <!-- Agrega el li a la lista -->
+                    });
+                })
+                .catch(error => console.error('Error al obtener las tareas:', error));  <!-- Muestra un error si algo sale mal -->
+        }
+    </script>
+</body>
+</html>
+

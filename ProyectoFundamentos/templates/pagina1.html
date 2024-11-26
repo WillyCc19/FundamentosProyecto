@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Check! - Gestión de Tareas</title>  
+        <link rel="stylesheet" href="../static/css/banner.css">
+        <link rel="stylesheet" href="../static/css/bienvenidos.css">
+        <link rel="stylesheet" href="../static/css/blog.css">
+        <link rel="stylesheet" href="../static/css/info.css">
+    </head>
+    
+    <body>
+        <!-- Botón para navegar a la página 2 -->
+        <button type="button" onclick="window.location.href='/pagina2'">Ir a la Página 2</button>
+
+        <!-- Botón para navegar a la página de la calculadora de notas -->
+        <button type="button" onclick="window.location.href='/calculadora_notas'">Ir a la Calculadora</button>
+
+        <!-- Sección del banner principal con una imagen y una breve descripción -->
+        <section id="banner">
+            <img src="{{ url_for('static', filename='imagenes/banner.jpg') }}">
+            <div class="contenedor">
+                <h2>Descripción General</h2>
+                <p>Bienvenido a Check!, tu herramienta para organizar y gestionar tus tareas diarias.<br>Agrega, organiza y completa tus pendientes de manera fácil y rápida.</p>
+            </div>
+        </section>
+
+        <!-- Sección del blog que describe las características principales de la web -->
+        <section id="blog">
+            <h3>Características de la Web</h3>
+            <div class="contenedor">
+                <!-- Primer artículo sobre encuesta de opinión -->
+                <article>
+                    <img src="{{ url_for('static', filename='imagenes/imagen1.jpg') }}">
+                    <h4>Encuesta de Opinión</h4>
+                    <p>Check incluye una sección de encuesta que permite a los usuarios compartir su experiencia y sugerencias para mejorar la plataforma.</p>
+                </article>
+                <!-- Segundo artículo sobre gestión de tareas -->
+                <article>
+                    <img src="{{ url_for('static', filename='imagenes/imagen2.jpg') }}">
+                    <h4>Gestión de Tareas</h4>
+                    <p>Los usuarios pueden agregar tareas nuevas con un título, descripción y fecha límite. Además, pueden marcar las tareas como completadas cuando las terminen.</p>
+                </article>
+                <!-- Tercer artículo sobre visualización de tareas activas y completadas -->
+                <article>
+                    <img src="{{ url_for('static', filename='imagenes/imagen3.jpg') }}">
+                    <h4>Visualización de Tareas Activas y Completadas</h4>
+                    <p>La plataforma organiza las tareas en dos secciones: tareas activas y tareas completadas, lo que facilita su seguimiento y gestión.</p>
+                </article>
+                <!-- Cuarto artículo sobre la interfaz de la web -->
+                <article>
+                    <img src="{{ url_for('static', filename='imagenes/imagen4.jpg') }}">
+                    <h4>Interfaz Simple y Funcional</h4>
+                    <p>La interfaz de Check está diseñada con un enfoque minimalista y fácil de usar, lo que permite que los usuarios se enfoquen en lo importante: ¡sus tareas!</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sección de testimonios de usuarios -->
+        <section id="info">
+            <h3>Posibles testimonios</h3>
+            <div class="contenedor">
+                <!-- Testimonio de Max -->
+                <article>
+                    <img src="{{ url_for('static', filename='imagenes/persona1.jpg') }}">
+                    <h4>Max</h4>
+                    <p>"Check ha sido una herramienta esencial para organizar mis tareas diarias. Me encanta que puedo visualizar fácilmente las tareas activas y completadas. ¡Recomiendo esta app a todos!"</p>
+                </article>
+                <!-- Testimonio de Ana -->
+                <article>
+                    <img src="{{ url_for('static', filename='imagenes/persona2.jpg') }}">
+                    <h4>Ana</h4>
+                    <p>"Desde que uso Check, mi productividad ha mejorado muchísimo. La posibilidad de agregar fechas límite y tareas con descripción me ayuda a mantenerme enfocada." </p>
+                </article>
+                <!-- Testimonio de Paola -->
+                <article>
+                    <img src="{{ url_for('static', filename='imagenes/persona3.jpg') }}">
+                    <h4>Paola</h4>
+                    <p>"Me encanta lo fácil que es utilizar Check. Me ayuda a organizar todas mis tareas de la semana y nunca olvido nada importante. ¡Es una app que toda persona ocupada necesita!"</p>
+                </article>
+            </div>
+        </section>
+    </body>
+</html>
